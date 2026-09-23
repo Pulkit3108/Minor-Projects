@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class fileReader {
+public class FileReader {
 
 	public static String readFile(String file_name, String encoding) {
 		File anyFile = new File(file_name);

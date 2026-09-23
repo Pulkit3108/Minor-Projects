@@ -1,19 +1,79 @@
- ### [**FP-Growth Algorithm**](https://github.com/Pulkit3108/Minor-Projects/tree/main/FP-Growth%20Algorithm)
+# Minor Projects
 
+A collection of two algorithm projects with source code, sample input and output, reports, and presentations.
 
-This folder contains the code of the FP-Growth Algorithm. It is a Data Mining algorithm that is used to perform Market Sales Analysis by Identifying Frequent Patterns in data. The user can enter the data in the *input.txt* file and can run the code. The output will be generated in the *output.txt* file. Make sure to compile *FpNode.java* and *fileReader.java* before running the main file (*FpTree.java*).
-It is written in **Java Programming Language**.
+| Project | Language | Description |
+| --- | --- | --- |
+| [FP-Growth Algorithm](#fp-growth-algorithm) | Java | Mines frequent itemsets from transaction data using a minimum support count. |
+| [Travelling Salesman Route Heuristic](#travelling-salesman-route-heuristic) | C | Builds a delivery route with a nearest-neighbor heuristic. |
 
-### Working
->![Screenshot (174)](https://user-images.githubusercontent.com/46241207/167396183-c8e9eddc-f149-4654-84d6-85d808c62762.png)
+## FP-Growth Algorithm
 
-### [**The Travelling Salesman Problem**](https://github.com/Pulkit3108/Minor-Projects/tree/main/The%20Travelling%20Salesman%20Problem)
+The Java program reads space-separated transactions from `input.txt`, asks for a minimum support count, and writes the discovered frequent patterns to `output.txt`.
 
+### Build and Run
 
-This folder contains the code of The Travelling Salesman Problem (TSP) using Dynamic Programming and File Handling which is used to find the optimal path for the Pizza Delivery Service. The user can enter input manually or in the form of a .txt file. It is written in **C Programming Language**.
+```bash
+cd "FP-Growth Algorithm"
+javac FpNode.java FileReader.java FpTree.java
+java FpTree
+```
 
-### Working
->![Screenshot (173)](https://user-images.githubusercontent.com/46241207/167396193-cfe1bf89-7edb-4f3c-89c3-ffd02abd6baa.png)
+Enter a positive minimum support count when prompted. Each line in `input.txt` represents one transaction, and items on the line are separated by spaces.
 
+### Preview
 
+![FP-Growth input and output](Docs/media/fp-growth-output.png)
 
+### Project Files
+
+- `FpTree.java`: FP-tree construction and frequent-pattern generation.
+- `FpNode.java`: FP-tree node structure.
+- `FileReader.java`: transaction-file reader.
+- `input.txt` and `output.txt`: runnable sample data and output.
+- `Report.pdf` and `PPT.pptx`: original project documentation.
+
+## Travelling Salesman Route Heuristic
+
+The C program models a pizza-delivery route and supports manual input or file-based input. It repeatedly selects the nearest unvisited location, so it is a nearest-neighbor heuristic rather than an exact dynamic-programming solution. The generated route is not guaranteed to be optimal.
+
+### Build and Run
+
+```bash
+cd "The Travelling Salesman Problem"
+cc -std=c11 -Wall -Wextra -pedantic pizza.c -o tsp
+./tsp
+```
+
+Choose `0` for manual input or `1` for file-based input. For file-based input, provide `input.txt` and an output filename such as `output.txt`.
+
+The input file contains:
+
+1. Number of locations, from 1 to 15.
+2. One single-word location name per line, up to 9 characters each.
+3. Every off-diagonal distance in row order.
+4. The zero-based index of the starting location.
+
+### Preview
+
+![Pizza delivery route output](Docs/media/tsp-route-output.png)
+
+### Project Files
+
+- `pizza.c`: nearest-neighbor route implementation.
+- `input.txt` and `output.txt`: runnable sample data and generated output.
+- `Report.pdf` and `PPT.pptx`: original project documentation.
+
+## Repository Structure
+
+```text
+FP-Growth Algorithm/                   Java implementation and artifacts
+The Travelling Salesman Problem/       C implementation and artifacts
+Docs/media/                            README preview media
+```
+
+## Notes
+
+- Run each program from its own project directory because both use relative input and output paths.
+- Generated Java classes and the local C executable are excluded through `.gitignore`.
+- The reports and presentations are preserved as original coursework artifacts.

@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.vscode/
+
+*.class
+*.o
+
+/The Travelling Salesman Problem/tsp

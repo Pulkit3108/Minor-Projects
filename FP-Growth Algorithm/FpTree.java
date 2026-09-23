@@ -19,7 +19,7 @@ public class FpTree {
 		System.out.print("Enter Minimum Support : ");
 		Scanner sc = new Scanner(System.in);
 		min_sup = sc.nextLong();
-		List<String[]> table = fileReader.scanChart("input.txt", " ", "utf-8");
+		List<String[]> table = FileReader.scanChart("input.txt", " ", "utf-8");
 		PrintStream o = new PrintStream(new File("output.txt"));
 		System.setOut(o);
 		long totalMilliSeconds1 = System.currentTimeMillis();
@@ -47,6 +47,9 @@ public class FpTree {
 	// Based on FP growth, recursively finding frequent items
 	private static Map<Set<FpNode>, Long> growthFunc(FpNode root, Map<String, FpNode> topHead, String idMark) {
 		Map<Set<FpNode>, Long> qualifyFreq = new HashMap<Set<FpNode>, Long>();
+		if (topHead.isEmpty()) {
+			return qualifyFreq;
+		}
 		Set<String> keys = topHead.keySet();
 		String[] keysArray = keys.toArray(new String[0]);
 		String headID = keysArray[keysArray.length - 1];
